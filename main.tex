@@ -1,0 +1,39 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{CJKutf8}
+\usepackage{graphicx}
+\include{html}
+
+\begin{document}
+\title{MY PAPER}
+\maketitle
+
+    
+        \clearpage
+        \input{cover_page}
+        
+        \tableofcontents
+        \listoffigures
+        \lstlistoflistings
+        %\listoftables
+        
+        \clearpage
+        \input{introduction}
+        \clearpage
+        
+        \input{chap_01}
+        \clearpage
+        
+        \input{chap_02}
+        \clearpage
+
+       
+        \bibliographystyle{unsrt}
+        \bibliography{reference}
+        
+        \clearpage
+    
+\end{document}
