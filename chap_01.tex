@@ -1,8 +1,8 @@
-\chapter{Literature review}
+\section{Literature review}
 
-\section{Natural Language Processing with Deep Learning}
+\subsection{Natural Language Processing with Deep Learning}
 It is non-negligible thing to unified fundamental knowledge in a Deep Learning architecture from Collobert et al. (2011) \cite{DBLP:journals/corr/abs-1103-0398}.
-The work is cover various task on Natural Language Processing (NLP) problem including part-of-speech tagging, chunking, named entity recognition (NER), and semantic role labeling.
+The work is cover various task on NLP problem including part-of-speech tagging, chunking, named entity recognition (NER), and semantic role labeling.
 There are only two models introduced in this work which are sentence approach network and window approach network.
 The window approach network consider fixed size window of words around one word.
 Given that the tag of a word depends mainly on its neighboring, the window approach network usually provides a good result on most tasks such as part-of-speech tagging, chunking, name entity detection.
@@ -20,18 +20,20 @@ Finally, each word features then used as input for the classifier layer individu
 This model is well-known and is proofed to be effective in various NLP tasks. 
 Hence, it has usually been used to forge a baseline for multiple tasks in NLP research field.
 \begin{figure}[!h]
+\centering
   \includegraphics[scale=0.5]{window_approach_network.png}
   \caption{Window approach network.}
   \label{fig:window_approach_network}
 \end{figure}
 \begin{figure}[!h]
+\centering
   \includegraphics[scale=0.5]{sentence_approach_network.png}
   \caption{Sentence approach network.}
   \label{fig:sentence_approach_network}
 \end{figure}
 
 
-\section{Neural architectures for named entity recognition}
+\subsection{Neural architectures for named entity recognition}
 To illustrate a clear picture of each work, one should views the published model into three level separately: Character-Encoder level, Word-Encoder level, and Tag-Decoder level.
 The process during Character-Encoder level are counted from the character feature look-up table to each word features are extracted from a sequence of characters.
 The Word-Encoder level is a process from a creation of each word feature to an acquisition of each word hidden feature.
@@ -54,7 +56,7 @@ Furthermore, with Active learning algorithm, a model proof to be able to manipul
 Compare with other models, his LSTM-LSTM-LSTM achieve the highest F1-score.
 
 
-\section{Weighted Cross-Entropy for imbalance data}
+\subsection{Weighted Cross-Entropy for imbalance data}
 
 The total amount of name entity in our training data contains 190 classes excluding ``B-'', ``I-'', and ``O'' tags.
 This leads to an imbalance label problem. Furthermore, NER task is usually fill with high ratio of O-Tags.
@@ -64,7 +66,7 @@ Thus, result in a model which could only predicted O-Tags correctly.
 Therefore, we view that the weighted calculation for each tag in our categorical Cross-Entropy is a non-trivial matter and it could be solve similarly to a rare word detection problem.
 There are some published which discussed about this in a keyword detection model proposed by Panchapagesan et al. (2016) \cite{DBLP:conf/interspeech/PanchapagesanSK16}, and Sun et al. (2017) \cite{DBLP:journals/corr/SunRTPFMMSV17}.
 
-\section{Our work}
+\subsection{Compact Accurate Deep Model}
 From the previous studying, even through, while the model which done in a more complicate method usually provide a better result, its also raise a question that could a compact one be able to achieve such a result.
 Hence, an optimization of the model is the main focus of this work.
 In term of optimization, our main contribution lays in various aspect such as a training duration, most needed feature, and an amount of epoch for training until model converge.

@@ -1,7 +1,7 @@
-\chapter{Method}
+\section{Methodology}
 
 \begin{CJK*}{UTF8}{min}
-\section{Corpus}
+\subsection{Corpus}
 The corpus used in model experiment is called ``ene-corbocha-mainiti''.
 It consists with 8,228 news articles, 53,224 unique words, and 2,226,147 tokens.
 The sentence is also annotated with word segmentation, POS, and chunk dependencies that annotated by the tool called: CaboCha.
@@ -83,13 +83,14 @@ The Japanese particle word could be categorized into 8 groups:
 \end{enumerate}
 
 \begin{figure}[!h]
+\centering
   \includegraphics[scale=0.3]{character_encoder.png}
   \caption{Character-Encoder level.}
   \label{fig:chaenc}
 \end{figure}
 
-\section{Model}
-\subsection{Character-Encoder level}
+\subsection{Model}
+\subsubsection{Character-Encoder level}
 Input in this level are character indexes of each word from sentences.
 As illustrates in Figure \ref{fig:chaenc}, \textbf{S} stands for a sentence from \textbf{1} to \textbf{m} for one input batch.
 \textbf{M} stands for a word from \textbf{1} to \textbf{n} for one sentence.
@@ -105,13 +106,14 @@ As for Japanese, 「本」 character sometime could represent a location such as
 
 
 \begin{figure}[!h]
+\centering
   \includegraphics[scale=0.3]{word_encoder.png}
   \caption{Word-Encoder level.}
   \label{fig:winenc}
 \end{figure}
 
 
-\subsection{Word Encoder level}
+\subsubsection{Word Encoder level}
 This level is applied with various combination features inputs such as Japanese particle types (JP) as mentioned in the previous section, and Part-of-speech (POS).
 As illustrate in Figure \ref{fig:winenc}, there are several chunk in one sentence.
 Initially, consider input sentence of sentence \textbf{m} is \textbf{S\textsubscript{m}}, each word is an input that connected to its embedding layer to generate its vector from word \textbf{1} to \textbf{n} as \textbf{S\textsubscript{m}W\textsubscript{1-n}}.
@@ -124,13 +126,14 @@ The output from Bi-directional LSTM for each word is collected as a vector \text
 
 
 \begin{figure}[!h]
+\centering
   \includegraphics[scale=0.3]{tag_decoder.png}
   \caption{Tag-Decoder level.} 
 
   \label{fig:tagdec}
 \end{figure}
 
-\subsection{Tag-Decoder level}
+\subsubsection{Tag-Decoder level}
 Tag Decoder level is the last part in the model.
 Its input is a concatenate vector between the output vector of each word from the previous Word-Encoder level and the output from a tag embedding layer.
 However, the input of tag embedding layer is quite crafty as it is a previous timestep of its tag index.
@@ -138,7 +141,7 @@ Therefore, to predict the second word's name entity of a sentence, the first wor
 The concatenation of this input then pass through LSTM layer and one last linear layer to finally determine the each word's label.
 Hence, it means that the output of word \textbf{n} of sentence \textbf{m} is determined by tag \textbf{n-1} of sentence \textbf{m} \textbf{S\textsubscript{m}T\textsubscript{n-1}} and hidden vector n of sentence \textbf{m} (\textbf{S\textsubscript{m}h\textsubscript{n}}).
 
-\section{Weighted categorical cross-entropy}
+\subsection{Weighted categorical cross-entropy}
 Unlike usual name entity detection task on other work, ene-corbocha-mainiti corpus contains 26 name entity tags.
 As a result, the model suffers greatly from an imbalance tags problem.
 Also, a sampling method to adjust each label equally is likely impossible, as NLP task usually treat each input data as a sequence.
@@ -169,5 +172,5 @@ As name entity tags are much lower than non-name entity tags in number, this fun
 
 After achieve weight of each tag, the loss is calculated by Equation \ref{eq2}. 
 Hence, \textbf{W\textsubscript{l}[tag]} is a weight of each tag, \textbf{S[tag]} represents a score on the correct tag, and \textbf{S[j]} represents each score achieved from class \textbf{0} to class \textbf{j} where \textbf{j} is a total class exists.
-After summation of loss, the overall loss is divided by the number of prediction times to find an average.
+After summation of loss, the overall loss is divided by the number of prediction times to find an average. We believed that by this learning method. Once the model able to distinguish between minority group which obviously a name entity accurately, the other tag should not be hard to adjust later on. Therefore, the model could avoid such a local minima that could occurred when adjust itself to O-Tags.
 \end{CJK*}

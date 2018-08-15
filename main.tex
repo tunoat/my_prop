@@ -1,25 +1,30 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{mathptmx}
 \usepackage[nottoc]{tocbibind}
-
+\usepackage{setspace}
+\usepackage[thinlines]{easytable}
 \usepackage{CJKutf8}
 \usepackage{graphicx}
 \include{html}
-
 \begin{document}
-\title{MY PAPER}
-\maketitle
-
-    
-        \clearpage
+\pagenumbering{roman}
         \input{cover_page}
+        \clearpage
         
-        \tableofcontents
+        \input{under_cover_page}
+        \clearpage
+       
+        \input{signature}
+        \clearpage
+        \renewcommand{\baselinestretch}{0.5}\normalsize
+\tableofcontents
+\renewcommand{\baselinestretch}{1.0}\normalsize
         \listoffigures
-        \lstlistoflistings
+        %\lstlistoflistings
         %\listoftables
-        
+\pagenumbering{arabic}
         \clearpage
         \input{introduction}
         \clearpage
