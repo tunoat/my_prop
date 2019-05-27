@@ -1,0 +1,38 @@
+\selectlanguage{english}
+\setlength{\parindent}{0.5cm}
+\section{Introduction}
+Improvement of customer service is one of the most essential issues for many companies,
+since it heavily influences customer's satisfaction.
+The customer service department of big enterprise should handle a large amount
+of requests from many customers.
+Especially, it is important to deal with complaints from the customers.
+The goal of this study is to automatically classify Thai texts of the customer's
+complaints for efficient handling of them.
+
+
+Since the idea of Deep Learning language model has been proposed
+by Collobert et al. (2011) \cite{journals/corr/abs-1103-0398}, many studies have
+reported that the word and phrase embeddings significantly boosted
+the performance in many of natural language pro-cessing (NLP) tasks
+(Socher et al., 2013; Zeng et el., 2014; Severyn and Moschitti, 2015; Lai et al., 2015).
+\cite{socher2013recursive,zeng2014relation,severyn2015twitter,lai2015recurrent}
+Especially, by applying famous word embedding techniques introduced by
+Mikolov et al. (2013) \cite{mikolov2013distributed}, the language model became more precise.
+However, a good word embedding may be difficult to obtain when the size of training data is
+limited in some specific domains. The classification of customer complaint feedbacks
+also suffers from a lack of the training data. In addition, customer's complaints
+usually contain slang, typos, ungrammatical sentence and rich emotion.
+Therefore, another difficulty of our task is preprocessing of Thai language.
+Since there is no space boundary between the words in Thai, word segmentation is essential
+for Thai text processing. However, the errors of the word segmentation especially for
+ungrammatical sentences could lead to the significant decline of model performance.
+In short, the model will have low tolerance against unknown word combination that
+comes from ungrammatical input.
+
+
+This paper proposes methods to improve the model for the complaint classification: 
+denoising autoencoder with corrupted word and rule-based normalization in preprocessing.
+Furthermore, several Recurrent Neural Network (RNN) architectures are empirically evaluated
+in the task of complaint classification. The proposed methods significantly
+improve F1-score by 0.06 from a baseline that applies only word
+embedding with Bi-directional Long-Short Term Memory.

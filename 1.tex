@@ -1,0 +1,24 @@
+\selectlanguage{english}
+\begin{table}[ht]
+\centering
+%%%\tiny
+\caption{Average of F1, precision, and recall for single/bi-directional
+models with and without DACW.}
+\label{table:1}
+
+\scalebox{0.93}{
+\begin{tabular}{|l|r|r|r|}
+\hline
+RNN model & pre-avg & recall-avg & f1-avg \\ \hline
+lstm-wodacw & 0.8924 & 0.8896 & 0.8906 \\ 
+gru-wodacw & 0.8885 & 0.8885 & 0.8873\\ 
+bi-lstm-wodacw & 0.8934 & 0.8929 & 0.8923  \\ 
+bi-gru-wodacw & 0.8953 & 0.8947 & 0.8936\\ \hline 
+lstm-dacw & 0.8981 & 0.8966 & 0.8967\\ 
+gru-dacw & 0.8899 & 0.8898 & 0.8894\\ 
+bi-lstm-dacw & 0.8994 & 0.8996 & 0.8987\\ 
+bi-gru-dacw & 0.8971 & 0.8964 & 0.8963\\ \hline 
+
+\end{tabular}
+}
+\end{table}

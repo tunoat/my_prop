@@ -1,43 +1,58 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
 \usepackage{mathptmx}
+\usepackage{multirow}
 \usepackage[nottoc]{tocbibind}
 \usepackage{setspace}
 \usepackage[thinlines]{easytable}
-\usepackage{CJKutf8}
 \usepackage{graphicx}
+\usepackage[english, thai]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{fonts-tlwg}
+\usepackage{amsmath}
+\selectlanguage{english}
 \include{html}
 \begin{document}
 \pagenumbering{roman}
+\afterpage{\blankpage}
         \input{cover_page}
         \clearpage
         
-        \input{under_cover_page}
-        \clearpage
        
-        \input{signature}
-        \clearpage
+        %\input{signature}
+        %\clearpage
         \renewcommand{\baselinestretch}{0.5}\normalsize
-\tableofcontents
+\selectlanguage{english}\tableofcontents
 \renewcommand{\baselinestretch}{1.0}\normalsize
         \listoffigures
         %\lstlistoflistings
-        %\listoftables
+        \listoftables
 \pagenumbering{arabic}
         \clearpage
-        \input{introduction}
+        \input{01_intro.tex}
         \clearpage
         
-        \input{chap_01}
+        \input{02_lit.tex}
         \clearpage
         
-        \input{chap_02}
+        \input{03_architecture.tex}
+        \clearpage
+        \input{04_proposed.tex}
+        \clearpage
+        \input{05_experiment.tex}
+        \clearpage
+        \input{06_conclusion.tex}
         \clearpage
 
        
         \bibliographystyle{unsrt}
-        \bibliography{reference}
+        \bibliography{bib/reference.bib}
         
         \clearpage
     

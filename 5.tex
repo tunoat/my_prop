@@ -1,0 +1,26 @@
+\selectlanguage{english}
+\begin{table}[ht]
+\centering
+\small
+\caption{Examples of the complaint classification.}
+\label{table:5}
+\scalebox{0.525}{
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Sentence & Gold label & bi-lstm-peephole-dacw & bi-lstm-wodacw & Evaluation remark \\ \hline
+\multirow{ 2}{*}{}
+\selectlanguage{thai}เจ้าหน้าที่|\_|มารยาท|\_|แย่|จัง| & & & &\\
+The officer have a bad manner. & Staff quality & Staff quality & Staff quality & Correctly predicted\\ \hline
+\selectlanguage{thai}ที่|อื่น|โปร|โมชั่น|ดี|กว่า|นี้|เยอะ|เลย|  &  &  &  &  \\
+Other place given a better promotion. & Competitors & Competitors & Competitors & Correctly predicted \\ \hline
+\selectlanguage{thai}ที่|นี่แหละ|ที่|callcenter|ไม่|ปลื้ม|เลย|ขึ้น|เสียง|แบบ| &  &  &  & \\ 
+The callcenter always raise their tone. Don’t like it. & Staff quality & Staff quality & Timing & Clueless prediction on model two.  \\ \hline
+\selectlanguage{thai}บัตร|ออกแบบ|มา|อย่าง|ปัญญาอ่อน| &  &  &  & \\
+The designed card look retard. & Others & Others & Staff quality & Clueless prediction on model two. \\ \hline
+\selectlanguage{thai}การแจ้ง|ผล|ช้า|ซะ|ยิ่ง|กว่า|ช้า| &  &  &  & \\
+The notification process is slower than slowest. & Process & Timing & Process & Sensible prediction on model one. \\ \hline
+\selectlanguage{thai}บริการ|ช้า|มาก|ทำ|เอา|ลูกค้า|ไม่|ปลื้ม| &  &  &  & \\
+Customers are not happy from the very slow service. & Timing & Staff quality & Staff quality & Incorrectly predicted in the same manner. \\ \hline
+\end{tabular}
+}
+\end{table}

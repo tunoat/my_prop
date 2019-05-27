@@ -1,0 +1,41 @@
+\selectlanguage{english}
+\setlength{\parindent}{0.5cm}
+\section{Related work}
+\subsection{RNN for text classification}
+Text classification is one of the most prominent tasks in the NLP field.
+It cannot be neglected that currently RNN is one of the powerhouse in this
+field due to its capability to learn a long depend-ency in the text.
+In the past years, there are many published researches using RNN as a key component.
+RNN and its variants significantly outper-formed Space Vector Model (SVM)
+with conventional supervised machine learning and feedforward Neural Network.
+Moreover, one of the prominent advantages of Deep Neural Network model
+is the ability to extract important features from the hidden nodes without
+feature engineering.
+RNN architectures used in this paper will be discussed in Section 3.
+
+
+RNN was also applied for the classification of customer's complaints.
+Assawinjaipetch et al. (2016) \cite{assawinjaipetch-etal-2016-recurrent} proposed
+a classification model based on single or bi-directional RNN
+with word embedding and achieved 0.85 F1-score.
+We propose an-other RNN model that is tolerant to data sparseness of the training data.
+
+
+\subsection{Denoising Autoencoder}
+Vincent et al. (2008) \cite{vincent2008extracting} introduced denoising auto-encoders (dA) which
+forced the hidden layer to discover efficient features instead of learning directly
+from sampling in a training set. It consists of two modules; encoding the inputs
+(corrupting) and producing the outputs from the corrupted states (reconstructing).
+The dA is a very rare architecture applied in NLP field as we treat the texts
+as discrete data unlike image and audio.
+However, denoising techniques can be applied to the texts by stochastically
+adding noise to the input.
+Zhang and Komachi (2015) \cite{zhang2015japanese} proposed dA that
+handles word sequence by adding noise to the word embedding features in a different
+rate at the stack of autoencoder layers. 
+
+
+In our method, the dA is incorporated with bi-directional RNN.
+Furthermore, we propose a new method to add noise called denoising autoencoder 
+with corrupted word, which will be explained in Subsection 4.3.
+
